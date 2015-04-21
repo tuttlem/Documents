@@ -26,10 +26,12 @@
 * What's the difference between HTML and XHTML?
 * Are there any problems with serving pages as application/xhtml+xml?
 
-* Why is it generally a good idea to position CSS <link>s between <head></head> and JS <script>s just before </body>? Do you know any exceptions?
+* Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? 
+   * Do you know any exceptions?
+
 * What is progressive rendering?
 * Describe the difference between a cookie, sessionStorage and localStorage.
-* Describe the difference between <script>, <script async> and <script defer>.
+* Describe the difference between `<script>`, `<script async>` and `<script defer>`.
 
 * How do you serve a page with content in multiple languages?
 
@@ -70,7 +72,7 @@
 * How would you implement a web design comp that uses non-standard fonts?
 * Explain how a browser determines what elements match a CSS selector.
 * Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
-* What does * { box-sizing: border-box; } do? What are its advantages?
+* What does `* { box-sizing: border-box; }` do? What are its advantages?
 * List as many values for the display property that you can remember.
 * What's the difference between inline and inline-block?
 * What's the difference between a relative, fixed, absolute and statically positioned element?
@@ -115,7 +117,7 @@ var person = Person()
 ```
 
 ```
-var person = new Person()?
+var person = new Person()
 ```
 
 * What's the difference between `.call` and `.apply`?
@@ -153,16 +155,16 @@ var person = new Person()?
 * What are the differences between Long-Polling, Websockets and Server-Sent Events?
 
 Explain the difference between the following:
-    * Expires
-    * Date
-    * Age
-    * If-Modified-
+   * Expires
+   * Date
+   * Age
+   * If-Modified-
 
 Explain the following request and response headers:
-    * Do Not Track
-    * Cache-Control
-    * Transfer-Encoding
-    * ETag
-    * X-Frame-Options
+   * Do Not Track
+   * Cache-Control
+   * Transfer-Encoding
+   * ETag
+   * X-Frame-Options
  
 

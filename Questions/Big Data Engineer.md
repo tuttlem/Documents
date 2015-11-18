@@ -142,9 +142,9 @@ The hadoop-metrics.properties file controls reporting in Hadoop.
 
 ### Machine learning
 
-What algorithms can you put in place to suggest a product to a user of the website?
-What algorithms can you put in place to profile a customer more likely to commit to a purchase?
+* What algorithms can you put in place to suggest a product to a user of the website?
+* What algorithms can you put in place to profile a customer more likely to commit to a purchase?
 
-Given a sample of transactions that you would see on a bank statement, walk through the algorithms you'd use to "tag" transactions automatically for the purposes of budgeting?
-Given a large portfolio of PDF documents and some very basic meta information, what algorithms can you use to teach a system what "type" of document they're looking at?
+* Given a sample of transactions that you would see on a bank statement, walk through the algorithms you'd use to "tag" transactions automatically for the purposes of budgeting?
+* Given a large portfolio of PDF documents and some very basic meta information, what algorithms can you use to teach a system what "type" of document they're looking at?
 

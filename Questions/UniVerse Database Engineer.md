@@ -46,7 +46,7 @@
 
 ## Support
 
-### Describe some of thw ways that you'd relieve database processing pressure on pooly performing files?
+### Describe some of the ways that you'd relieve database processing pressure on poorly performing files?
 
 * resize files
 

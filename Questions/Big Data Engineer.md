@@ -1,150 +1,99 @@
+# Modern Big Data Candidate Questions
 
-# Big Data Candidate Questions
+## General Big Data Concepts
 
-## Hadoop
+### What is Big Data, and why is it important?
+Explain what Big Data refers to and discuss how businesses leverage massive amounts of data for decision-making, operational efficiency, and strategic goals.
 
-### What is Hadoop?
+### What are the key challenges in managing Big Data?
+Discuss the challenges related to scalability, data quality, processing speed, integration of diverse data sources, data security, and real-time processing.
 
-Apache Hadoop is a free, open-source, Java-based software framework used to store, maintain, and process large-scale sets of data across numerous clusters of commodity hardware.
+### Can you explain the differences between batch processing and real-time (stream) processing?
+Compare these two processing paradigms and give examples of tools or frameworks used for each (e.g., Spark for batch, Flink/Kafka for streaming).
 
-### Why is Hadoop useful?
+### What are the most important components in a modern data stack?
+Discuss modern data architecture components, including data lakes, data warehouses, data pipelines, ETL/ELT, and tools like Apache Kafka, Apache Spark, Snowflake, Databricks, etc.
 
-Hadoop is fault tolerant, meaning the system will simply redirect to another location and resume work when a node is lost. Hadoop is also schema-less and can absorb data of all types, sources, and structures, allowing for deeper analysis.
+---
 
-### What are the four modules that make up the Apache Hadoop framework?
+## Modern Data Transformation and Processing Frameworks
 
-* **Hadoop Common**, which contains the common utilities and libraries necessary for Hadoop’s other modules.
-* **Hadoop YARN**, the framework's platform for resource-management
-* **Hadoop Distributed File System**, or **HDFS**, which stores information on commodity machines
-* **Hadoop MapReduce**, a programming model used to process  large-scale sets of data
+### What is Apache Spark, and how does it differ from Hadoop MapReduce?
+Explain how Spark improves upon MapReduce, focusing on in-memory processing, flexibility in APIs (e.g., support for Scala, Java, Python, R), and its ecosystem (MLlib, Spark SQL, etc.).
 
-### What are the different run modes in Hadoop?
+### What are some use cases for Apache Flink or similar stream processing frameworks?
+Discuss where Flink or other real-time streaming frameworks (like Kafka Streams) are useful, e.g., for event-driven architectures, IoT data processing, and fraud detection.
 
-* **Standalone**, or **local** mode, which is one of the least commonly used environments. When it is used, it’s usually only for running MapReduce programs. Standalone mode lacks a distributed file system, and uses a local file system instead.
-* **Pseudo-distributed** mode, which runs all daemons on a single machine. It is most commonly used in QA and development environments.
-* **Fully distributed** mode, which is most commonly used in production environments. Unlike pseudo-distributed mode, fully distributed mode runs all daemons on a cluster of machines rather than a single one.
+### How would you implement a data pipeline using a combination of Apache Kafka, Apache Spark, and a data warehouse like Snowflake?
+Walk through the steps of setting up a data pipeline with real-time data ingestion via Kafka, processing in Spark, and then persisting the results into Snowflake or a similar data warehouse for querying.
 
-### List Hadoop’s three configuration files.
+### What are the advantages of using cloud-native big data services like AWS Glue, Google Dataflow, or Azure Data Factory?
+Explain how these services enable serverless data processing, scale-out capabilities, and support for ETL/ELT operations with minimal operational overhead.
 
-* hdfs-site.xml
-* core-site.xml
-* mapred-site.xml
+---
 
-### What are “slaves” and “masters” in Hadoop?
+## Data Storage Technologies
 
-In Hadoop, slaves are a list of hosts for task tracker servers and datanodes. Masters list hosts for secondary namenode servers.
+### What is a Data Lake, and how does it differ from a Data Warehouse?
+Explain the concept of a data lake, how it stores raw, unstructured data, and compare it with the structured nature of a data warehouse.
 
-### What is a Namenode?
+### What is Delta Lake, and how does it improve upon traditional data lakes?
+Describe how Delta Lake adds ACID transactions, scalable metadata handling, and time travel capabilities to data lakes, making them more suitable for enterprise data management.
 
-Namenode exists at the center of the Hadoop distributed file system cluster. It manages metadata for the file system, and datanodes, but does not store data itself.
+### How would you design a data storage architecture for a company handling both structured and unstructured data?
+Discuss how to organize structured data (e.g., in relational databases like Snowflake or Redshift) and unstructured data (e.g., in a data lake using S3 or Hadoop HDFS).
 
-### How many Namenodes can run on a single Hadoop cluster?
+### What are your thoughts on using cloud-based data warehouses like Snowflake or BigQuery vs. on-prem solutions like Hadoop?
+Explain the trade-offs between cloud-based solutions and traditional on-premise deployments in terms of scalability, cost, and ease of use.
 
-Only one Namenode process can run on a single Hadoop cluster. The file system will go offline if this Namenode goes down.
+---
 
-### What is a Datanode?
+## Data Ingestion and Streaming
 
-Unlike Namenode, a datanode actually stores data within the Hadoop distributed file system. Datanodes run on their own Java virtual machine process.
+### How would you set up a data streaming architecture using Apache Kafka?
+Discuss Kafka’s role as a distributed log for handling high-throughput, low-latency data streams, and walk through the setup of producers, consumers, and topics.
 
-### How many datanodes can run on a single Hadoop cluster?
+### How would you implement real-time data ingestion into a data lake using Apache Kafka or AWS Kinesis?
+Walk through a use case for ingesting real-time data from various sources (IoT devices, user interactions, etc.) into a data lake (e.g., using AWS Kinesis Firehose or Kafka to S3).
 
-Hadoop slave nodes contain only one datanode process each.
+### What are the benefits of using Apache Pulsar over Apache Kafka for data streaming?
+Discuss some of the newer capabilities in Pulsar, such as multi-tenancy, geo-replication, and event storage/streaming unification.
 
-### What is job tracker in Hadoop?
+---
 
-Job tracker is used to submit and track jobs in MapReduce.
+## Cloud and Serverless Data Processing
 
-### How many job tracker processes can run on a single Hadoop cluster?
+### What is the role of serverless in Big Data, and what are some examples of serverless data processing?
+Discuss how serverless technologies like AWS Lambda, Google Cloud Functions, and Azure Functions can be used in a Big Data ecosystem, e.g., for ETL, event-driven architectures, and auto-scaling.
 
-Like datanodes, there can only be one job tracker process running on a single Hadoop cluster. Job tracker processes run on their own Java virtual machine process. If job tracker goes down, all currently active jobs stop.
+### Can you describe a serverless data processing pipeline using AWS Glue or Databricks?
+Walk through a pipeline that uses serverless technologies to ingest data, transform it, and load it into a storage system, emphasizing the benefits of a serverless architecture (e.g., ease of scaling and cost-efficiency).
 
-### What sorts of actions does the job tracker process perform?
+### How do you manage data governance and security in a serverless environment?
+Discuss best practices for securing data in transit and at rest, monitoring data access, and ensuring compliance with regulations like GDPR and CCPA in a serverless ecosystem.
 
-* Client applications send the job tracker jobs.
-* Job tracker determines the location of data by communicating with Namenode.
-* Job tracker finds nodes in task tracker that has open slots for the data.
-* Job tracker submits the job to task tracker nodes.
-* Job tracker monitors the task tracker nodes for signs of activity. If there is not enough activity, job tracker transfers the job to a different task tracker node.
-* Job tracker receives a notification from task tracker if the job has failed. From there, job tracker might submit the job elsewhere, as described above. If it doesn’t do this, it might blacklist either the job or the task tracker.
+---
 
-### How does job tracker schedule a job for the task tracker?
+## Data Governance and Compliance
 
-When a client application submits a job to the job tracker, job tracker searches for an empty node to schedule the task on the server that contains the assigned datanode.
+### What tools and techniques do you use for data governance in Big Data platforms?
+Discuss modern tools like Apache Atlas, AWS Lake Formation, or Collibra, and explain how they assist in managing metadata, tracking lineage, and ensuring compliance.
 
-### What does the mapred.job.tracker command do?
+### How do you ensure GDPR/CCPA compliance when working with large datasets?
+Discuss approaches for managing sensitive data, ensuring consent for data usage, and implementing data anonymization, encryption, and secure data deletion.
 
-The `mapred.job.tracker` command will provide a list of nodes that are currently acting as a job tracker process.
+---
 
-### What is “jps”?
+## Machine Learning and Data Science
 
-jps is a command used to check if your task tracker, job tracker, datanode, and Namenode are working.
+### How do you integrate machine learning models into a data pipeline?
+Walk through an end-to-end ML pipeline, including data ingestion, feature engineering, model training using frameworks like TensorFlow or PyTorch, and serving the model in real-time.
 
-### How would you restart Namenode?
+### What is the difference between batch and real-time inference in machine learning?
+Compare how batch inference works (processing large volumes of data at once) versus real-time inference (making predictions for each incoming data point immediately).
 
-To restart Namenode, you could either write:
+### How would you scale a machine learning model to work with streaming data?
+Discuss techniques for handling real-time predictions in a streaming environment using tools like Apache Kafka, Apache Flink, or TensorFlow Serving.
 
-* `sudo hdfs`
-* `su-hdfs`
-* `/etc/init.d/ha`, press enter, then `/etc/init.d/hadoop-0.10-namenode start`
-
-### What is a “map” in Hadoop?
-
-In Hadoop, a map is a phase in HDFS query solving. A map reads data from an input location, and outputs a key value pair according to the input type.
-
-### What is a “reducer” in Hadoop?
-
-In Hadoop, a reducer collects the output generated by the mapper, processes it, and creates a final output of its own.
-
-### What are the parameters of mappers and reducers?
-
-The four parameters for **mappers** are:
-
-* `LongWritable` (input)
-* `text` (input)
-* `text` (intermediate output)
-* `IntWritable` (intermediate output)
-
-The four parameters for **reducers** are:
-
-* `Text` (intermediate output)
-* `IntWritable` (intermediate output)
-* `Text` (final output)
-* `IntWritable` (final output)
-
-### Is it possible to rename the output file, and if so, how?
-
-Yes, it is possible to rename the output file by utilizing a multi-format output class.
-
-### List the network requirements for using Hadoop.
-
-* Secure Shell (SSH) for launching server processes
-* Password-less SSH connection
-
-### Which port does SSH work on?
-
-SSH works on the default port number, `22`.
-
-### What is streaming in Hadoop?
-
-As part of the Hadoop framework, streaming is a feature that lets engineers code with MapReduce in any language, as long as that programming language is able to accept and produce standard output. Even though Hadoop is Java-based, the chosen language doesn’t have to be Java. It can be Perl, Ruby, etc. If you want to use customization in MapReduce, however, Java must be used.
-
-### What is the difference between Input Split and an HDFS Block?
-
-InputSplit and HDFS Block both refer to the division of data, but InputSplit handles the logical division while HDFS Block handles the physical division.
-
-### What does the file hadoop-metrics.properties do?
-
-The hadoop-metrics.properties file controls reporting in Hadoop.
-
-
-
-## Data Analysis
-
-### Machine learning
-
-* What algorithms can you put in place to suggest a product to a user of the website?
-* What algorithms can you put in place to profile a customer more likely to commit to a purchase?
-
-* Given a sample of transactions that you would see on a bank statement, walk through the algorithms you'd use to "tag" transactions automatically for the purposes of budgeting?
-* Given a large portfolio of PDF documents and some very basic meta information, what algorithms can you use to teach a system what "type" of document they're looking at?
-
+### How do you manage model lifecycle and versioning in a production environment?
+Discuss tools like MLflow or Kubernetes, as well as strategies for tracking experiments, model versioning, deployment, and monitoring model performance in production.

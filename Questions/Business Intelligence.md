@@ -128,7 +128,3 @@ Discuss the advantages of cloud BI, such as scalability, real-time collaboration
 ### How do you implement data pipelines in cloud environments (e.g., using AWS, Azure, GCP)?
 
 Explain your experience with cloud-native ETL/ELT tools like AWS Glue, Azure Data Factory, or Google Cloud Dataflow, and how they can be used to build scalable and reliable data pipelines for BI solutions.
-
----
-
-This updated question set reflects modern BI tools, cloud integration, and current best practices in data warehousing and visualization, offering a more comprehensive evaluation for today's business intelligence candidates.
